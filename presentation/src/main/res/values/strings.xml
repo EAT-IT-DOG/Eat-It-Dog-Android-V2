@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EatItDog</string>
+    <string name="title_login">로그인</string>
+    <string name="title_search">검색</string>
+    <string name="title_home">홈</string>
+    <string name="title_proposal">제안</string>
+    <string name="title_myinfo">내정보</string>
+</resources>
