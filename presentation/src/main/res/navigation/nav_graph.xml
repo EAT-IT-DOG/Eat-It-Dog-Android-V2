@@ -7,5 +7,21 @@
     <fragment
         android:id="@+id/main_login"
         android:name="com.eatitdog.eatitdog.features.auth.login.fragment.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_main_login_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.eatitdog.eatitdog.features.main.activity.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.eatitdog.eatitdog.features.auth.register.fragment.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_main_login"
+            app:destination="@id/main_login" />
+    </fragment>
 </navigation>

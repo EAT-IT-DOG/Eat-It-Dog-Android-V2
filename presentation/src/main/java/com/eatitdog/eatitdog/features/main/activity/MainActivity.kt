@@ -6,10 +6,10 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.eatitdog.eatitdog.R
+import com.eatitdog.eatitdog.base.BaseActivity
 import com.eatitdog.eatitdog.databinding.ActivityMainBinding
 import com.eatitdog.eatitdog.features.main.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kr.co.moreversal.grabthathoe.base.BaseActivity
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {

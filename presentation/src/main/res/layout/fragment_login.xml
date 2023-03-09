@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/eat_it_dog_title"
@@ -84,9 +84,11 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/border_gray"
                 android:hint="비밀번호를 입력해주세요"
+                android:inputType="textPassword"
                 android:paddingStart="23dp"
                 android:paddingTop="15dp"
                 android:paddingBottom="13dp"
+                android:text="@={vm.pw}"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_gray"
                 android:textSize="12sp"
@@ -95,14 +97,16 @@
             <ImageView
                 android:id="@+id/pw_toggle_btn"
                 android:layout_width="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:layout_marginVertical="14dp"
                 android:layout_height="0dp"
+                android:layout_marginVertical="14dp"
+                android:layout_marginEnd="24dp"
+                android:adjustViewBounds="true"
+                android:onClick="@{() ->vm.onClickPwToggle()}"
                 android:src="@drawable/eye_off_icon"
-                app:layout_constraintTop_toTopOf="@id/pw_et"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/pw_et"
                 app:layout_constraintEnd_toEndOf="@id/pw_et"
-                android:adjustViewBounds="true" />
+                app:layout_constraintTop_toTopOf="@id/pw_et" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/login_btn"
@@ -138,6 +142,7 @@
                 android:id="@+id/join_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{() ->vm.onClickRegister()}"
                 android:text="회원가입"
                 android:textColor="@color/pink"
                 android:textSize="12sp"

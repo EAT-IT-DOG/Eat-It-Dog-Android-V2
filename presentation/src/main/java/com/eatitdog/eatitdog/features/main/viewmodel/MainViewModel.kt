@@ -1,5 +1,6 @@
 package com.eatitdog.eatitdog.features.main.viewmodel
 
-import kr.co.moreversal.grabthathoe.base.BaseViewModel
+import com.eatitdog.eatitdog.base.BaseViewModel
+
 
 class MainViewModel : BaseViewModel()

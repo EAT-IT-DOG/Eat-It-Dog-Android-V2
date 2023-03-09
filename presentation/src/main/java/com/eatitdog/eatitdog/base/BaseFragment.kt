@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.eatitdog.eatitdog.BR
-import com.eatitdog.eatitdog.features.main.activity.MainActivity
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     @LayoutRes private val layoutRes: Int
@@ -33,7 +32,6 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         prepareDataBinding()
-        (activity as? MainActivity)?.setNavVisible(hasBottomNavigation)
         start()
     }
 
