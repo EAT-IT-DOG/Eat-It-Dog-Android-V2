@@ -1,4 +1,4 @@
-package kr.co.moreversal.grabthathoe.base
+package com.eatitdog.eatitdog.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

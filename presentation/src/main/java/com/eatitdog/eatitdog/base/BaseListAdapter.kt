@@ -1,4 +1,4 @@
-package kr.co.moreversal.grabthathoe.base
+package com.eatitdog.eatitdog.base
 
 import androidx.annotation.LayoutRes
 import androidx.databinding.ViewDataBinding
