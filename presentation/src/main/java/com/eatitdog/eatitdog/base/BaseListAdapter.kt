@@ -1,6 +1,9 @@
 package com.eatitdog.eatitdog.base
 
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -21,5 +24,16 @@ abstract class BaseListAdapter<T, B : ViewDataBinding>(
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         return holder.bind(getItem(position))
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
+        return BaseViewHolder(
+            DataBindingUtil.inflate(
+                LayoutInflater.from(parent.context),
+                itemLayoutRes,
+                parent,
+                false
+            )
+        )
     }
 }

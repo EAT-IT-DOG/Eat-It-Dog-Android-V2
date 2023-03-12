@@ -11,4 +11,6 @@
     <color name="text_gray">#BCBCBC</color>
     <color name="border_gray">#DBDBDB</color>
     <color name="pink">#EDBACC</color>
+    <color name="green">#435C53</color>
+    <color name="yellow">#ECCD8C</color>
 </resources>

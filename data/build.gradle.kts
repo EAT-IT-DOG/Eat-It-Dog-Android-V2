@@ -40,6 +40,7 @@ dependencies {
     // retrofit
     implementation(Libraries.RETROFIT)
     implementation(Libraries.RETROFIT_CONVERTER_GSON)
+    implementation(Libraries.RETORFIT_CONVERTER_SCALARS)
     implementation(Libraries.OKHTTP)
     implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
 

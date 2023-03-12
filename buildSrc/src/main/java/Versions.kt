@@ -6,7 +6,7 @@ object Versions {
 
     const val FRAGMENT = "1.5.5"
 
-    const val CORE_KTX = "1.9.0"
+    const val CORE_KTX = "1.8.0"
     const val APP_COMPAT = "1.5.1"
     const val RUNTIME = "2.5.1"
     const val VIEWMODEL = "2.5.1"

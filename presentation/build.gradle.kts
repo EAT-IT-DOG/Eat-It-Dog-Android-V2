@@ -6,7 +6,6 @@ plugins {
     id(Plugins.kotlinParcelize)
     id(Plugins.navigation_safe_args)
     id(Plugins.kt_lint) version Versions.KT_LINT
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -71,6 +70,7 @@ dependencies {
     // retrofit
     implementation(Libraries.RETROFIT)
     implementation(Libraries.RETROFIT_CONVERTER_GSON)
+    implementation(Libraries.RETORFIT_CONVERTER_SCALARS)
     implementation(Libraries.OKHTTP)
     implementation(Libraries.OKHTTP_LOGGING_INTERCEPTOR)
 
