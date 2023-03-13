@@ -1,15 +1,17 @@
 package com.eatitdog.eatitdog.features.search.adapter
 
+import android.content.Intent
 import androidx.core.content.ContextCompat
-import com.eatitdog.domain.model.search.SearchResult
+import com.eatitdog.domain.model.search.SearchResultByCategory
 import com.eatitdog.eatitdog.R
 import com.eatitdog.eatitdog.base.BaseListAdapter
 import com.eatitdog.eatitdog.databinding.ItemCategorySearchBinding
+import com.eatitdog.eatitdog.features.result.activity.ResultActivity
 import com.eatitdog.eatitdog.features.search.adapter.callback.CategorySearchDiffUtilCallback
 
-class CategorySearchAdapter() : BaseListAdapter<SearchResult, ItemCategorySearchBinding>(R.layout.item_category_search, CategorySearchDiffUtilCallback) {
-    override fun action(item: SearchResult, binding: ItemCategorySearchBinding) {
-        var newItem = SearchResult(item.name, "#"+
+class CategorySearchAdapter() : BaseListAdapter<SearchResultByCategory, ItemCategorySearchBinding>(R.layout.item_category_search, CategorySearchDiffUtilCallback) {
+    override fun action(item: SearchResultByCategory, binding: ItemCategorySearchBinding) {
+        var newItem = SearchResultByCategory(item.name, "#"+
                 when(item.category) {
                     "MILK_PRODUCT" -> "유제품"
                     "SNACK" -> "간식"
@@ -38,7 +40,9 @@ class CategorySearchAdapter() : BaseListAdapter<SearchResult, ItemCategorySearch
 
 
         binding.categorySearchLayout.setOnClickListener {
-            //TODO 클릭 시 음식 상세 정보
+            val intent = Intent(binding.root.context, ResultActivity::class.java)
+            intent.putExtra("name", item.name)
+            binding.root.context.startActivity(intent)
         }
     }
 

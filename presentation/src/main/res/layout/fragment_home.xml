@@ -16,6 +16,7 @@
         android:layout_height="match_parent" >
 
         <EditText
+            android:singleLine="true"
             android:paddingStart="24dp"
             android:id="@+id/food_search_et"
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
             android:textColor="@color/black" />
 
         <ImageView
+            android:onClick="@{() ->vm.onClickSearch()}"
             android:id="@+id/food_search_btn"
             android:layout_width="wrap_content"
             android:layout_height="0dp"

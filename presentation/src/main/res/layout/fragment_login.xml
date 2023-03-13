@@ -49,6 +49,7 @@
                 app:layout_constraintTop_toBottomOf="@id/eat_it_dog_title" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
                 app:layout_constraintTop_toBottomOf="@id/email_et" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/pw_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

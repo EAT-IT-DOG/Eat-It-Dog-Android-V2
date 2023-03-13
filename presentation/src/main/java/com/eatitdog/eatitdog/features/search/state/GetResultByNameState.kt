@@ -1,9 +1,10 @@
 package com.eatitdog.eatitdog.features.search.state
 
 import com.eatitdog.domain.model.search.SearchResult
+import com.eatitdog.domain.model.search.SearchResultByCategory
 
-data class GetResultState(
+data class GetResultByNameState(
     val isUpdate: Boolean = false,
-    val result: List<SearchResult>? = null,
+    val result: SearchResult? = null,
     val error: String = ""
 )

@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="유제품"
-            android:text="@{category.name.toString()}"
+            android:text="@{category.name}"
             android:background="@drawable/round_green"
             android:textColor="@color/white"
             android:paddingHorizontal="26dp"

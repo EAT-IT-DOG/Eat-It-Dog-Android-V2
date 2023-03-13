@@ -21,18 +21,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             viewModel.eventFlow.collect() { event -> handleEvent(event) }
         }
         observeLiveData()
-        hideBnv()
-    }
-
-    private fun hideBnv() {
-        binding.emailEt.setOnFocusChangeListener { _, b ->
-            if(b) (activity as? MainActivity)?.setNavVisible(false)
-            else (activity as? MainActivity)?.setNavVisible(true)
-        }
-        binding.pwEt.setOnFocusChangeListener { _, b ->
-            if(b) (activity as? MainActivity)?.setNavVisible(false)
-            else (activity as? MainActivity)?.setNavVisible(true)
-        }
     }
 
     private fun handleEvent(event: Event) = when(event) {
@@ -61,5 +49,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
                 binding.pwToggleBtn.visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onResume() {
+        binding.emailEt.setText("")
+        binding.pwEt.setText("")
+        super.onResume()
     }
 }

@@ -1,7 +1,15 @@
 package com.eatitdog.domain.model.search
 
-data class SearchResult (
+data class SearchResult(
+    val benefit: String,
+    val caution: String,
+    val createdDateTime: String,
+    val eatingMethod: String,
+    val id: Int,
+    val modifiedDateTime: String,
     val name: String,
-    val category: String,
-    val grade: String
+    val safeness: String,
+    val searchCount: Int,
+    val symptom: String,
+    val type: String
 )

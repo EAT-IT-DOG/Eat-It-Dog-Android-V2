@@ -72,4 +72,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
         }
     }
 
+    override fun onResume() {
+        binding.emailEt.setText("")
+        binding.pwEt.setText("")
+        binding.pwCheckEt.setText("")
+        binding.nameEt.setText("")
+        super.onResume()
+    }
+
 }

@@ -50,6 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@id/eat_it_dog_title" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/name_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,6 +79,7 @@
                 app:layout_constraintTop_toBottomOf="@id/name_et" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/email_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -121,6 +123,7 @@
                 app:layout_constraintTop_toBottomOf="@id/certification_btn" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/pw_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -165,6 +168,7 @@
                 app:layout_constraintTop_toBottomOf="@id/pw_et" />
 
             <EditText
+                android:singleLine="true"
                 android:id="@+id/pw_check_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

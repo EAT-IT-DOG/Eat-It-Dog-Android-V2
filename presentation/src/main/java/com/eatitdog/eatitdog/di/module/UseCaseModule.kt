@@ -3,6 +3,7 @@ package com.eatitdog.eatitdog.di.module
 import com.eatitdog.domain.repository.SearchRepository
 import com.eatitdog.domain.usecases.search.GetResult
 import com.eatitdog.domain.usecases.search.GetResultByCategory
+import com.eatitdog.domain.usecases.search.GetResultByName
 import com.eatitdog.domain.usecases.search.SearchUseCases
 import dagger.Module
 import dagger.Provides
@@ -18,6 +19,7 @@ class UseCaseModule {
     fun provideSearchUseCases(repository: SearchRepository): SearchUseCases =
         SearchUseCases(
             getResultByCategory = GetResultByCategory(repository),
-            getResult = GetResult(repository)
+            getResult = GetResult(repository),
+            getResultByName = GetResultByName(repository)
         )
 }
