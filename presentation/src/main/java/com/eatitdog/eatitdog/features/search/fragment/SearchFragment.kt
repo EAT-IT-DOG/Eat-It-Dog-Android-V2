@@ -1,5 +1,8 @@
 package com.eatitdog.eatitdog.features.search.fragment
 
+import android.graphics.Rect
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.eatitdog.domain.model.search.Category
@@ -8,10 +11,13 @@ import com.eatitdog.eatitdog.R
 import com.eatitdog.eatitdog.base.BaseFragment
 import com.eatitdog.eatitdog.databinding.FragmentSearchBinding
 import com.eatitdog.eatitdog.extension.shortToast
+import com.eatitdog.eatitdog.extensions.repeatOnStarted
+import com.eatitdog.eatitdog.features.main.activity.MainActivity
 import com.eatitdog.eatitdog.features.search.adapter.CategoryAdapter
 import com.eatitdog.eatitdog.features.search.adapter.CategorySearchAdapter
 import com.eatitdog.eatitdog.features.search.viewmodel.SearchViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import com.eatitdog.eatitdog.features.search.viewmodel.SearchViewModel.Event
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(R.layout.fragment_search) {
@@ -21,8 +27,24 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(R.la
     private lateinit var categorySearchAdapter: CategorySearchAdapter
 
     override fun start() {
+        repeatOnStarted {
+            viewModel.eventFlow.collect { event -> handleEvent(event) }
+        }
         setCategoryAdapter()
         collectResultState()
+        hideBnv()
+    }
+
+    private fun hideBnv() {
+        binding.foodSearchEt.setOnFocusChangeListener { _, b ->
+            if(b) (activity as? MainActivity)?.setNavVisible(false)
+            else (activity as? MainActivity)?.setNavVisible(true)
+        }
+    }
+
+    private fun handleEvent(event: Event) = when(event) {
+        //is Event.OnClickSearchEditText -> (activity as? MainActivity)?.setNavVisible(event.checked)
+        else -> {}
     }
 
     private fun setCategoryAdapter() {
@@ -86,6 +108,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(R.la
             }
         }
     }
+
+
 
 
 }

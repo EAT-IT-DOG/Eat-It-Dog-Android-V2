@@ -10,6 +10,7 @@ import com.eatitdog.eatitdog.extensions.repeatOnStarted
 import com.eatitdog.eatitdog.features.auth.login.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.eatitdog.eatitdog.features.auth.login.viewmodel.LoginViewModel.Event
+import com.eatitdog.eatitdog.features.main.activity.MainActivity
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout.fragment_login) {
@@ -20,6 +21,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             viewModel.eventFlow.collect() { event -> handleEvent(event) }
         }
         observeLiveData()
+        hideBnv()
+    }
+
+    private fun hideBnv() {
+        binding.emailEt.setOnFocusChangeListener { _, b ->
+            if(b) (activity as? MainActivity)?.setNavVisible(false)
+            else (activity as? MainActivity)?.setNavVisible(true)
+        }
+        binding.pwEt.setOnFocusChangeListener { _, b ->
+            if(b) (activity as? MainActivity)?.setNavVisible(false)
+            else (activity as? MainActivity)?.setNavVisible(true)
+        }
     }
 
     private fun handleEvent(event: Event) = when(event) {
