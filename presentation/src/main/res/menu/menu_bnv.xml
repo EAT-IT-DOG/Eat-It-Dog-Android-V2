@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/main_login"
-        android:icon="@drawable/bnv_login_icon"
+        android:icon="@drawable/login_icon_selector"
         android:title="@string/title_login" />
 
     <item android:id="@+id/main_search"
-        android:icon="@drawable/bnv_search_icon"
+        android:icon="@drawable/search_icon_selector"
         android:title="@string/title_search" />
 
     <item android:id="@+id/main_home"
-        android:icon="@drawable/bnv_home_icon"
+        android:icon="@drawable/home_icon_selector"
         android:title="@string/title_home" />
 
     <item android:id="@+id/main_proposal"
-        android:icon="@drawable/bnv_proposal_icon"
+        android:icon="@drawable/proposal_icon_selector"
         android:title="@string/title_proposal" />
 
     <item android:id="@+id/main_myinfo"
-        android:icon="@drawable/bnv_my_icon"
+        android:icon="@drawable/my_icon_selector"
         android:title="@string/title_myinfo" />
 
 </menu>

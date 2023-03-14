@@ -2,12 +2,13 @@ package com.eatitdog.eatitdog.features.main.activity
 
 import android.content.Context
 import android.graphics.Rect
+import android.util.Log
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
-import android.view.ViewTreeObserver.OnGlobalLayoutListener
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -16,6 +17,7 @@ import com.eatitdog.eatitdog.R
 import com.eatitdog.eatitdog.base.BaseActivity
 import com.eatitdog.eatitdog.databinding.ActivityMainBinding
 import com.eatitdog.eatitdog.features.main.viewmodel.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -32,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.navController
         binding.bnvMain.setupWithNavController(navController)
+        binding.bnvMain.itemIconTintList = null
     }
 
     fun setNavVisible(demand: Boolean) {
