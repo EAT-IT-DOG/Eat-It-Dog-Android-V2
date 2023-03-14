@@ -34,6 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcv_main) as NavHostFragment
         navController = navHostFragment.navController
         binding.bnvMain.setupWithNavController(navController)
+        binding.bnvMain.selectedItemId = R.id.main_search
         binding.bnvMain.itemIconTintList = null
     }
 

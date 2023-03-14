@@ -20,4 +20,12 @@
         android:id="@+id/main_search"
         android:name="com.eatitdog.eatitdog.features.search.fragment.SearchFragment"
         android:label="SearchFragment" />
+    <fragment
+        android:id="@+id/main_myinfo"
+        android:name="com.eatitdog.eatitdog.features.myinfo.fragment.MyInfoFragment"
+        android:label="MyInfoFragment" />
+    <fragment
+        android:id="@+id/main_proposal"
+        android:name="com.eatitdog.eatitdog.features.proposal.fragment.ProposalFragment"
+        android:label="ProposalFragment" />
 </navigation>
