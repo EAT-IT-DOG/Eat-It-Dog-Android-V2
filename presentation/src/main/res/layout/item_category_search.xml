@@ -23,6 +23,8 @@
             android:background="@drawable/round_green">
 
             <TextView
+                android:fontFamily="@font/notosanskr_medium"
+                android:includeFontPadding="false"
                 android:id="@+id/search_food_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,6 +38,8 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
                 android:id="@+id/search_food_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -17,6 +17,8 @@
         android:background="@color/background_gray">
 
         <EditText
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
             android:singleLine="true"
             android:id="@+id/food_search_et"
             android:layout_width="match_parent"
@@ -83,6 +85,8 @@
                     android:layout_marginTop="26dp" />
 
                 <TextView
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:id="@+id/good_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,6 +111,8 @@
                     android:layout_marginTop="26dp" />
 
                 <TextView
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:id="@+id/soso_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -131,6 +137,8 @@
                     android:layout_marginTop="26dp" />
 
                 <TextView
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
                     android:id="@+id/danger_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
