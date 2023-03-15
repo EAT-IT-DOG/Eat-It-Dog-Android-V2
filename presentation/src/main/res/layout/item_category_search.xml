@@ -6,7 +6,7 @@
     <data>
         <variable
             name="search"
-            type="com.eatitdog.domain.model.search.SearchResultByCategory" />
+            type="com.stac.domain.model.search.SearchResultByCategory" />
     </data>
 
 

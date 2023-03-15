@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.eatitdog.eatitdog.features.search.viewmodel.SearchViewModel" />
+            type="com.stac.eatitdog.features.search.viewmodel.SearchViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

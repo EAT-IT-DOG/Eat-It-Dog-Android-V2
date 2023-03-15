@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.eatitdog.eatitdog.features.home.viewmodel.HomeViewModel" />
+            type="com.stac.eatitdog.features.home.viewmodel.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,6 +72,7 @@
                     android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="강아지가 먹어도 되는\n음식인지 검색해 보세요!"
                     android:textColor="@color/white"
                     app:layout_constraintStart_toStartOf="@id/banner_background"
@@ -107,6 +108,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:id="@+id/dairy_layout"
                             android:layout_weight="1"
+                            android:onClick="@{() ->vm.onClickMilkProduct()}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
@@ -136,6 +138,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickSnack()}"
                             android:layout_weight="1"
                             android:id="@+id/snack_layout"
                             android:layout_width="match_parent"
@@ -167,6 +170,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickMeat()}"
                             android:layout_weight="1"
                             android:id="@+id/meat_layout"
                             android:layout_width="match_parent"
@@ -204,6 +208,7 @@
                         android:layout_height="wrap_content">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickVegetable()}"
                             android:id="@+id/vegetable_layout"
                             android:layout_weight="1"
                             android:layout_width="match_parent"
@@ -235,6 +240,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickJunkFood()}"
                             android:layout_weight="1"
                             android:id="@+id/instant_layout"
                             android:layout_width="match_parent"
@@ -266,6 +272,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickSeaFood()}"
                             android:layout_weight="1"
                             android:id="@+id/seafood_layout"
                             android:layout_width="match_parent"
@@ -309,6 +316,7 @@
                         android:layout_height="wrap_content">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickDrink()}"
                             android:id="@+id/beverage_layout"
                             android:layout_weight="1"
                             android:layout_width="match_parent"
@@ -340,6 +348,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickSeaSoning()}"
                             android:layout_weight="1"
                             android:id="@+id/condiment_layout"
                             android:layout_width="match_parent"
@@ -371,6 +380,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:onClick="@{() ->vm.onClickFruit()}"
                             android:layout_weight="1"
                             android:id="@+id/fruit_layout"
                             android:layout_width="match_parent"

@@ -186,4 +186,4 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,android,androidstudio
 
-/data/src/main/java/com/eatitdog/data/network/url/DogUrl.kt
+/data/src/main/java/com/stac/data/network/url/DogUrl.kt

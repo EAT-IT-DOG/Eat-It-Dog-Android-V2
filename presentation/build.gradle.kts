@@ -6,7 +6,6 @@ plugins {
     id(Plugins.kotlinParcelize)
     id(Plugins.navigation_safe_args)
     id(Plugins.kt_lint) version Versions.KT_LINT
-    id("org.jetbrains.kotlin.android")
 }
 
 android {

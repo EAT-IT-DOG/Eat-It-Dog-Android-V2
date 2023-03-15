@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.eatitdog.eatitdog">
+    package="com.stac.eatitdog">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".EatItDogApplication"
+        android:name="com.stac.eatitdog.EatItDogApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,11 +17,11 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".features.result.activity.ResultActivity"
+            android:name="com.stac.eatitdog.features.result.activity.ResultActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
-            android:name=".features.main.activity.MainActivity"
+            android:name="com.stac.eatitdog.features.main.activity.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
