@@ -11,173 +11,182 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_gray"
         tools:context=".features.result.activity.ResultActivity">
 
-        <ScrollView
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/confirm_btn"
-            android:id="@+id/search_layout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="match_parent"
+            android:layout_margin="36dp"
+            android:background="@drawable/round_white">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ScrollView
+                android:id="@+id/search_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="60dp">
-
-                <ImageView
-                    android:id="@+id/safeness_img"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="1dp"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintEnd_toEndOf="@id/safeness_text"
-                    app:layout_constraintStart_toStartOf="@id/safeness_text"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/circle_green" />
-
-                <TextView
-                    android:id="@+id/safeness_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_gray"
-                    android:textSize="12sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/safeness_img"
-                    tools:text="안전" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:includeFontPadding="false"
-                    android:id="@+id/food_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/safeness_text"
-                    tools:text="닭발" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:includeFontPadding="false"
-                    android:id="@+id/edible_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="섭취 가능 여부"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/food_name" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:includeFontPadding="false"
-                    android:id="@+id/edible_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/text_gray"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/edible_title"
-                    tools:text="섭취 가능합니다." />
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/confirm_btn"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/feed_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/edible_text">
+                    android:layout_height="match_parent"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/safeness_img"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="1dp"
+                        android:adjustViewBounds="true"
+                        app:layout_constraintEnd_toEndOf="@id/safeness_text"
+                        app:layout_constraintStart_toStartOf="@id/safeness_text"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@drawable/circle_green" />
 
                     <TextView
+                        android:id="@+id/safeness_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/safeness_img"
+                        tools:text="안전" />
+
+                    <TextView
+                        android:id="@+id/food_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:fontFamily="@font/notosanskr_medium"
                         android:includeFontPadding="false"
-                        android:id="@+id/feed_title"
+                        android:textColor="@color/black"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/safeness_text"
+                        tools:text="닭발" />
+
+                    <TextView
+                        android:id="@+id/edible_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:text="급여 방법"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:text="섭취 가능 여부"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toBottomOf="@id/food_name" />
 
                     <TextView
-                        android:fontFamily="@font/notosanskr_regular"
-                        android:includeFontPadding="false"
-                        android:id="@+id/feed_text"
+                        android:id="@+id/edible_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
                         android:textColor="@color/text_gray"
                         android:textSize="16sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/feed_title"
-                        tools:text="뼈를 제거하고 살만 발라서 주세요. 조리되지 않은 생뼈는 급여해도 되지만 익힌 뼈는 부서지면서 강아지들에게 위협적이기 때문에 가급적이면 뼈를 제거해주세요." />
+                        app:layout_constraintTop_toBottomOf="@id/edible_title"
+                        tools:text="섭취 가능합니다." />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/feed_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/edible_text">
+
+                        <TextView
+                            android:id="@+id/feed_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:fontFamily="@font/notosanskr_medium"
+                            android:includeFontPadding="false"
+                            android:text="급여 방법"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/feed_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/notosanskr_regular"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/feed_title"
+                            tools:text="뼈를 제거하고 살만 발라서 주세요. 조리되지 않은 생뼈는 급여해도 되지만 익힌 뼈는 부서지면서 강아지들에게 위협적이기 때문에 가급적이면 뼈를 제거해주세요." />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/explain_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/notosanskr_medium"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/feed_layout"
+                        tools:text="주성분 및 기능" />
+
+                    <TextView
+                        android:id="@+id/explain_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/notosanskr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/text_gray"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/explain_title"
+                        tools:text="탄수화물이 거의 없음, 콜레스테롤이 낮음, 콜라겐 포함으로 관절에 좋음" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:fontFamily="@font/notosanskr_medium"
-                    android:includeFontPadding="false"
-                    android:id="@+id/explain_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/feed_layout"
-                    tools:text="주성분 및 기능" />
+            </ScrollView>
 
-                <TextView
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:includeFontPadding="false"
-                    android:id="@+id/explain_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:textColor="@color/text_gray"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/explain_title"
-                    tools:text="탄수화물이 거의 없음, 콜레스테롤이 낮음, 콜라겐 포함으로 관절에 좋음" />
+            <TextView
+                android:id="@+id/none_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="검색하신 음식이 없습니다"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/confirm_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_layout" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/confirm_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="56dp"
+                android:layout_marginBottom="24dp"
+                android:fontFamily="@font/notosanskr_regular"
+                android:includeFontPadding="false"
+                android:onClick="@{() ->vm.onClickConfirm()}"
+                android:text="확인"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:background="@drawable/round_green" />
 
-        </ScrollView>
 
-        <TextView
-            android:id="@+id/none_text"
-            android:visibility="gone"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_layout"
-            app:layout_constraintBottom_toTopOf="@id/confirm_btn"
-            android:text="검색하신 음식이 없습니다" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:fontFamily="@font/notosanskr_regular"
-            android:includeFontPadding="false"
-            android:id="@+id/confirm_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="56dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="확인"
-            android:onClick="@{() ->vm.onClickConfirm()}"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:layout_marginBottom="24dp"
-            tools:background="@drawable/round_green" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

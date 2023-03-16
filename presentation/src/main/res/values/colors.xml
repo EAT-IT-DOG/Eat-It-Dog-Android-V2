@@ -13,4 +13,8 @@
     <color name="pink">#EDBACC</color>
     <color name="green">#435C53</color>
     <color name="yellow">#ECCD8C</color>
+    <color name="transparent_pink">#82EDBACC</color>
+    <color name="transparent_green">#82435C53</color>
+    <color name="transparent_yellow">#82ECCD8C</color>
+    <color name="transparent_text_gray">#82BCBCBC</color>
 </resources>

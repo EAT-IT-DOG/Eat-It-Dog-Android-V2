@@ -17,153 +17,155 @@
         android:background="@color/background_gray">
 
         <EditText
-            android:fontFamily="@font/notosanskr_regular"
-            android:includeFontPadding="false"
-            android:singleLine="true"
             android:id="@+id/food_search_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="36dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/round_white"
+            android:fontFamily="@font/notosanskr_regular"
             android:hint="음식 이름을 입력하세요"
+            android:includeFontPadding="false"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingHorizontal="24dp"
             android:paddingStart="24dp"
             android:paddingTop="20dp"
             android:paddingBottom="17dp"
+            android:singleLine="true"
             android:textColor="@color/black"
             android:textColorHint="@color/text_gray"
             android:textSize="16sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:onClick="@{() ->vm.onClickSearch()}"
             android:id="@+id/food_search_btn"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginVertical="16dp"
             android:layout_marginEnd="24dp"
             android:adjustViewBounds="true"
+            android:onClick="@{() ->vm.onClickSearch()}"
             android:src="@drawable/search_icon"
             app:layout_constraintBottom_toBottomOf="@id/food_search_et"
             app:layout_constraintEnd_toEndOf="@id/food_search_et"
             app:layout_constraintTop_toTopOf="@id/food_search_et" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/food_search_et"
+            tools:listitem="@layout/item_category" />
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/food_search_et">
+            app:layout_constraintTop_toBottomOf="@id/rcv_category">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginHorizontal="36dp"
-                    android:id="@+id/rcv_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:listitem="@layout/item_category" />
-
-                <ImageView
-                    android:layout_marginHorizontal="1dp"
-                    android:id="@+id/circle_good"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/circle_green"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintTop_toBottomOf="@id/rcv_category"
-                    app:layout_constraintEnd_toEndOf="@id/good_text"
-                    app:layout_constraintStart_toStartOf="@id/good_text"
-                    android:layout_marginTop="26dp" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:includeFontPadding="false"
-                    android:id="@+id/good_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="안전"
-                    android:textColor="@color/text_gray"
-                    app:layout_constraintTop_toBottomOf="@id/circle_danger"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintEnd_toStartOf="@id/soso_text"
-                    android:layout_marginEnd="10dp"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:layout_marginHorizontal="1dp"
-                    android:id="@+id/circle_soso"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/circle_yellow"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintTop_toBottomOf="@id/rcv_category"
-                    app:layout_constraintEnd_toEndOf="@id/soso_text"
-                    app:layout_constraintStart_toStartOf="@id/soso_text"
-                    android:layout_marginTop="26dp" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:includeFontPadding="false"
-                    android:id="@+id/soso_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="양호"
-                    android:textColor="@color/text_gray"
-                    app:layout_constraintTop_toBottomOf="@id/circle_danger"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintEnd_toStartOf="@id/danger_text"
-                    android:layout_marginEnd="10dp"
-                    android:textSize="12sp" />
-
-                <ImageView
-                    android:layout_marginHorizontal="1dp"
-                    android:id="@+id/circle_danger"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/circle_pink"
-                    android:adjustViewBounds="true"
-                    app:layout_constraintTop_toBottomOf="@id/rcv_category"
-                    app:layout_constraintEnd_toEndOf="@id/danger_text"
-                    app:layout_constraintStart_toStartOf="@id/danger_text"
-                    android:layout_marginTop="26dp" />
-
-                <TextView
-                    android:fontFamily="@font/notosanskr_regular"
-                    android:includeFontPadding="false"
-                    android:id="@+id/danger_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="위험"
-                    android:textColor="@color/text_gray"
-                    app:layout_constraintTop_toBottomOf="@id/circle_danger"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintEnd_toEndOf="@id/rcv_category"
-                    android:textSize="12sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:layout_marginHorizontal="36dp"
                     android:id="@+id/rcv_category_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/good_text"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:layout_marginVertical="28dp"
+                    android:layout_marginHorizontal="32dp"
                     android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    tools:listitem="@layout/item_category_search"/>
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/item_category_search" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
+
+        <ImageView
+            android:id="@+id/circle_good"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginTop="26dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/transparent_circle_green"
+            app:layout_constraintEnd_toEndOf="@id/good_text"
+            app:layout_constraintStart_toStartOf="@id/good_text"
+            app:layout_constraintTop_toBottomOf="@id/rcv_category" />
+
+        <TextView
+            android:id="@+id/good_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="안전"
+            android:textColor="@color/transparent_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/soso_text"
+            app:layout_constraintTop_toBottomOf="@id/circle_danger" />
+
+        <ImageView
+            android:id="@+id/circle_soso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginTop="26dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/transparent_circle_yellow"
+            app:layout_constraintEnd_toEndOf="@id/soso_text"
+            app:layout_constraintStart_toStartOf="@id/soso_text"
+            app:layout_constraintTop_toBottomOf="@id/rcv_category" />
+
+        <TextView
+            android:id="@+id/soso_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="양호"
+            android:textColor="@color/transparent_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/danger_text"
+            app:layout_constraintTop_toBottomOf="@id/circle_danger" />
+
+        <ImageView
+            android:id="@+id/circle_danger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:layout_marginTop="28dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/transparent_circle_pink"
+            app:layout_constraintEnd_toEndOf="@id/danger_text"
+            app:layout_constraintStart_toStartOf="@id/danger_text"
+            app:layout_constraintTop_toBottomOf="@id/rcv_category" />
+
+        <TextView
+            android:id="@+id/danger_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/notosanskr_regular"
+            android:includeFontPadding="false"
+            android:text="위험"
+            android:textColor="@color/transparent_text_gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/circle_danger" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
