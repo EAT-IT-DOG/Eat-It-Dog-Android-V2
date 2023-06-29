@@ -2,6 +2,7 @@ package com.stac.domain.usecases.search
 
 data class SearchUseCases(
     val getResultByCategory: GetResultByCategory,
-    val getResult: GetResult,
-    val getResultByName: GetResultByName
+    val getResultAll: GetResultAll,
+    val getResultByName: GetResultByName,
+    val getResult: GetResult
 )

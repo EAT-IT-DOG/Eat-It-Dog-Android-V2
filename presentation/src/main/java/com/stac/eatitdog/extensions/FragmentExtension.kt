@@ -1,4 +1,4 @@
-package com.stac.eatitdog.extension
+package com.stac.eatitdog.extensions
 
 
 import android.content.Intent

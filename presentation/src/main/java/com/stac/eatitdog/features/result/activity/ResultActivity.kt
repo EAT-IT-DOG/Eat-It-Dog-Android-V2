@@ -50,6 +50,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding, ResultViewModel>(R.la
                     if (state.error.isNotBlank()) {
                         binding.searchLayout.visibility = View.GONE
                         binding.noneText.visibility = View.VISIBLE
+                        binding.noneText.text = intent.getStringExtra("name") + "라는 음식이 없습니다."
                         binding.confirmBtn.setBackgroundResource(R.drawable.round_pink)
                     }
                 }

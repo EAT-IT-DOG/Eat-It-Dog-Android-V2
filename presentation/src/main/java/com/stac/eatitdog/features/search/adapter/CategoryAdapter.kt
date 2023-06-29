@@ -15,7 +15,7 @@ class CategoryAdapter(viewmodel: SearchViewModel, category: String?) : BaseListA
     CategoryDiffUtilCallback
 ) {
     private val clickCategory = category
-    private var currentCategory = ""
+    var currentCategory = ""
     private var beforeBinding: ItemCategoryBinding? = null
     private var vm = viewmodel
 
@@ -25,7 +25,11 @@ class CategoryAdapter(viewmodel: SearchViewModel, category: String?) : BaseListA
             beforeBinding = binding
             changeLayout(item, binding, true)
         }else {
-            changeLayout(item, binding, false)
+            if(currentCategory == item.name) {
+                changeLayout(item, binding, true)
+            } else {
+                changeLayout(item, binding, false)
+            }
         }
         binding.category = item
 
@@ -37,16 +41,16 @@ class CategoryAdapter(viewmodel: SearchViewModel, category: String?) : BaseListA
                 currentCategory = item.name
                 beforeBinding = binding
                 changeLayout(item, binding, true)
-                vm.getResultByCategory(convertStringToType(item.name))
+                vm.getResultByCategory(itemCount / 10, convertStringToType(item.name)!!)
             } else {
                 changeLayout(item, beforeBinding!!, false)
-                vm.getResult()
+                vm.getResultAll(0)
                 currentCategory = ""
             }
         }
     }
 
-    fun convertStringToType(str: String): CategoryType {
+    fun convertStringToType(str: String): CategoryType? {
         return when (str) {
             "유제품" -> CategoryType.MILK_PRODUCT
             "간식" -> CategoryType.SNACK
@@ -56,7 +60,8 @@ class CategoryAdapter(viewmodel: SearchViewModel, category: String?) : BaseListA
             "해산물" -> CategoryType.SEAFOOD
             "음료" -> CategoryType.DRINK
             "조미료" -> CategoryType.SEASONING
-            else -> CategoryType.FRUIT
+            "과일" -> CategoryType.FRUIT
+            else -> null
         }
     }
 

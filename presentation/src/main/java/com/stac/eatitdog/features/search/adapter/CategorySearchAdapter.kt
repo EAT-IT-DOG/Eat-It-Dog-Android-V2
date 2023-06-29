@@ -2,6 +2,7 @@ package com.stac.eatitdog.features.search.adapter
 
 import android.content.Intent
 import androidx.core.content.ContextCompat
+import com.stac.domain.model.search.CategoryType
 import com.stac.domain.model.search.SearchResultByCategory
 import com.stac.eatitdog.R
 import com.stac.eatitdog.base.BaseListAdapter
@@ -44,11 +45,6 @@ class CategorySearchAdapter() : BaseListAdapter<SearchResultByCategory, ItemCate
             intent.putExtra("name", item.name)
             binding.root.context.startActivity(intent)
         }
-    }
-
-    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        super.onBindViewHolder(holder, position)
-
     }
 
 }

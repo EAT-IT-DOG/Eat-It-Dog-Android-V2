@@ -14,16 +14,18 @@ interface SearchApi {
         @Query("name") name: String
     ): SearchResult
 
-    @GET(DogUrl.SEARCH)
-    suspend fun getResult(
+    @GET(DogUrl.SEARCH_ALL)
+    suspend fun getResultAll(
         @Query("page") page: Int,
         @Query("size") size: Int
     ): List<SearchResponse>
 
-
-    @GET(DogUrl.SEARCH_CATEGORY)
-    suspend fun getResultOfCategory(
-        @Query("type") type: String
-    ): List<SearchOfCategoryResponse>
+    @GET(DogUrl.SEARCH)
+    suspend fun getResult(
+        @Query("keyword") keyword: String?,
+        @Query("page") page: Int,
+        @Query("size") size: Int,
+        @Query("type") type: String?
+    ) : List<SearchResult>
 
 }

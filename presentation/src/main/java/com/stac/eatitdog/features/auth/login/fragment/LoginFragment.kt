@@ -43,7 +43,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
         pw.observe(this@LoginFragment) {
             if(pw.value.isNullOrBlank()) {
                 binding.pwToggleBtn.visibility = View.GONE
-                binding.pwEt.inputType = 0x00000081
+                changeToggle(true)
             } else {
                 binding.pwToggleBtn.visibility = View.VISIBLE
             }

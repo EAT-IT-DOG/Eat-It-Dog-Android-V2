@@ -16,11 +16,18 @@ class SearchRemote @Inject constructor(
         return api.getResultOfName(name)
     }
 
-    suspend fun getResult(page: Int, size: Int): List<SearchResponse> {
-        return api.getResult(page, size)
+    suspend fun getResultAll(page: Int, size: Int): List<SearchResponse> {
+        return api.getResultAll(page, size)
     }
 
-    suspend fun getResultOfCategory(category: CategoryType): List<SearchOfCategoryResponse> {
-        return api.getResultOfCategory(category.toString())
+    suspend fun getResultOfCategory(page: Int, type: CategoryType): List<SearchResult> {
+        return api.getResult("", page, 10, type.toString())
+    }
+
+    suspend fun getResult(keyword: String?, page: Int, type: CategoryType?) : List<SearchResult> {
+        if(type == null) {
+            return api.getResult(keyword, page, 10, "")
+        }
+        return api.getResult(keyword, page, 10, type.toString())
     }
 }

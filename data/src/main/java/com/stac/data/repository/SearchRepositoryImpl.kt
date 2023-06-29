@@ -16,19 +16,27 @@ class SearchRepositoryImpl @Inject constructor(
         return searchDataSource.getResultOfName(name)
     }
 
-    override suspend fun getResult(page: Int, size: Int): List<SearchResultByCategory> {
+    override suspend fun getResultAll(page: Int, size: Int): List<SearchResultByCategory> {
         val list = mutableListOf<SearchResultByCategory>()
-        searchDataSource.getResult(page, size).forEach {
+        searchDataSource.getResultAll(page, size).forEach {
             list.add(it.toModel())
         }
         return list
     }
 
 
-    override suspend fun getResultByCategory(categoryType: CategoryType): List<SearchResultByCategory> {
+    override suspend fun getResultByCategory(page: Int, type: CategoryType): List<SearchResultByCategory> {
         val list = mutableListOf<SearchResultByCategory>()
-        searchDataSource.getResultOfCategory(categoryType).forEach {
-            list.add(it.toModel(categoryType.toString()))
+        searchDataSource.getResultOfCategory(page, type).forEach {
+            list.add(it.toModel())
+        }
+        return list
+    }
+
+    override suspend fun getResult(keyword: String?, page: Int, type: CategoryType?): List<SearchResultByCategory> {
+        val list = mutableListOf<SearchResultByCategory>()
+        searchDataSource.getResult(keyword, page, type).forEach {
+            list.add(it.toModel())
         }
         return list
     }

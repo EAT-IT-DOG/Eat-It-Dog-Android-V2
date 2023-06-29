@@ -1,11 +1,14 @@
 package com.stac.eatitdog.features.search.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.stac.domain.model.search.CategoryType
 import com.stac.domain.usecases.search.GetResult
+import com.stac.domain.usecases.search.GetResultAll
+import com.stac.domain.usecases.search.GetResultByCategory
 import com.stac.domain.usecases.search.SearchUseCases
 import com.stac.eatitdog.base.BaseViewModel
-import com.stac.eatitdog.features.search.state.GetResultByCategoryState
+import com.stac.eatitdog.features.search.state.GetResultState
 import com.stac.eatitdog.utils.MutableEventFlow
 import com.stac.eatitdog.utils.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,8 +26,8 @@ class SearchViewModel @Inject constructor(
     private val _eventFlow = MutableEventFlow<Event>()
     val eventFlow = _eventFlow.asEventFlow()
 
-    private val _getResultByCategoryState = MutableStateFlow(GetResultByCategoryState())
-    val getResultByCategoryState: StateFlow<GetResultByCategoryState> = _getResultByCategoryState
+    private val _getResultState = MutableStateFlow(GetResultState())
+    val getResultState: StateFlow<GetResultState> = _getResultState
 
     private fun event(event: Event) = viewModelScope.launch {
         _eventFlow.emit(event)
@@ -34,21 +37,29 @@ class SearchViewModel @Inject constructor(
         event(Event.onClickSearch)
     }
 
-    fun getResultByCategory(type: CategoryType) {
-        searchUseCases.getResultByCategory(type).divideResult(
+    fun getResult(keyword: String?, page: Int, type: CategoryType?) {
+        searchUseCases.getResult(GetResult.Params(keyword, page, type)).divideResult(
             isLoading,
-            { _getResultByCategoryState.value = GetResultByCategoryState(result = it, isUpdate = true) },
-            { _getResultByCategoryState.value = GetResultByCategoryState(error = it ?: "음식을 받아오지 못하였습니다.") }
+            { _getResultState.value = GetResultState(result = it, isUpdate = true, paging = true, judgment = "search", page = page) },
+            { _getResultState.value = GetResultState(error = it ?: "음식을 받아오지 못하였습니다.") }
         ).launchIn(viewModelScope)
     }
 
-    fun getResult() {
-        searchUseCases.getResult(
-            GetResult.Params(0, 200)
+    fun getResultByCategory(page: Int, type: CategoryType) {
+        searchUseCases.getResultByCategory(GetResultByCategory.Params(page, type)).divideResult(
+            isLoading,
+            { _getResultState.value = GetResultState(result = it, isUpdate = true, paging = true, judgment = type.toString(), page = page) },
+            { _getResultState.value = GetResultState(error = it ?: "음식을 받아오지 못하였습니다.") }
+        ).launchIn(viewModelScope)
+    }
+
+    fun getResultAll(page: Int) {
+        searchUseCases.getResultAll(
+            GetResultAll.Params(page, 10)
         ).divideResult(
             isLoading,
-            { _getResultByCategoryState.value = GetResultByCategoryState(result = it, isUpdate = true) },
-            { _getResultByCategoryState.value = GetResultByCategoryState(error = it ?: "음식을 받아오지 못하였습니다.") }
+            { _getResultState.value = GetResultState(result = it, isUpdate = true, paging = true, judgment = "all", page = page) },
+            { _getResultState.value = GetResultState(error = it ?: "음식을 받아오지 못하였습니다.") }
         ).launchIn(viewModelScope)
     }
 

@@ -15,7 +15,7 @@ import javax.inject.Singleton
 class RemoteModule {
     @Singleton
     @Provides
-    fun provideMealRemote(@OtherRemoteRetrofit retrofit: Retrofit): SearchRemote =
+    fun provideSearchRemote(@OtherRemoteRetrofit retrofit: Retrofit): SearchRemote =
         SearchRemote(retrofit.create(SearchApi::class.java))
 
 }

@@ -6,9 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -17,7 +15,7 @@ import com.stac.eatitdog.R
 import com.stac.eatitdog.base.BaseActivity
 import com.stac.eatitdog.databinding.ActivityMainBinding
 import com.stac.eatitdog.extension.shortToast
-import com.stac.eatitdog.features.home.fragment.HomeFragmentDirections
+import com.stac.eatitdog.extensions.shortToast
 import com.stac.eatitdog.features.main.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,6 +29,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
     override fun start() {
         setNavigation()
     }
+
+
+
 
 
     private fun setNavigation() {
@@ -70,15 +71,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
 
     override fun onBackPressed() {
         if (System.currentTimeMillis() > backpressedTime + 2000) {
-            backpressedTime = System.currentTimeMillis();
+            backpressedTime = System.currentTimeMillis()
             shortToast("\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.")
         } else if (System.currentTimeMillis() <= backpressedTime + 2000) {
-            finish();
+            finish()
         }
-
-
-
-        //super.onBackPressed()
     }
 
 }

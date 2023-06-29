@@ -1,8 +1,8 @@
 import org.gradle.api.JavaVersion
 
 object ProjectProperties {
-    const val VERSION_CODE = 14
-    const val VERSION_NAME = "2.3.0"
+    const val VERSION_CODE = 16
+    const val VERSION_NAME = "2.3.1"
 
     const val APPLICATION_ID = "com.stac.eatitdog"
     const val TEST_RUNNER = "androidx.test.runner.AndroidJUnitRunner"

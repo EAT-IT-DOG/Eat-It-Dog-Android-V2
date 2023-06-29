@@ -1,4 +1,4 @@
-package com.stac.eatitdog.features.search.state
+package com.stac.eatitdog.features.result.state
 
 import com.stac.domain.model.search.SearchResult
 

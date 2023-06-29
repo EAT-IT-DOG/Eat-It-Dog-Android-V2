@@ -3,7 +3,7 @@ package com.stac.eatitdog.features.result.viewmodel
 import androidx.lifecycle.viewModelScope
 import com.stac.domain.usecases.search.SearchUseCases
 import com.stac.eatitdog.base.BaseViewModel
-import com.stac.eatitdog.features.search.state.GetResultByNameState
+import com.stac.eatitdog.features.result.state.GetResultByNameState
 import com.stac.eatitdog.utils.MutableEventFlow
 import com.stac.eatitdog.utils.asEventFlow
 import dagger.hilt.android.lifecycle.HiltViewModel
