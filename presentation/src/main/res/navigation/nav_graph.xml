@@ -10,7 +10,7 @@
         android:label="LoginFragment" />
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.stac.eatitdog.features.auth.register.fragment.RegisterFragment"
+        android:name="com.stac.eatitdog.features.auth.join.fragment.JoinFragment"
         android:label="RegisterFragment" />
     <fragment
         android:id="@+id/main_home"

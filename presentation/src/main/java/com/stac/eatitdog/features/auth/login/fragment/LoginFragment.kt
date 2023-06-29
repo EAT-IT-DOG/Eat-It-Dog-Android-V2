@@ -1,12 +1,15 @@
 package com.stac.eatitdog.features.auth.login.fragment
 
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.stac.eatitdog.R
 import com.stac.eatitdog.base.BaseFragment
 import com.stac.eatitdog.databinding.FragmentLoginBinding
 import com.stac.eatitdog.extensions.repeatOnStarted
+import com.stac.eatitdog.extensions.shortToast
 import com.stac.eatitdog.features.auth.login.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import com.stac.eatitdog.features.auth.login.viewmodel.LoginViewModel.Event
@@ -20,11 +23,39 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layou
             viewModel.eventFlow.collect() { event -> handleEvent(event) }
         }
         observeLiveData()
+        collectLoginState()
     }
 
     private fun handleEvent(event: Event) = when(event) {
-        is Event.OnClickRegister -> findNavController().navigate(R.id.registerFragment)
+        is Event.OnClickJoin -> findNavController().navigate(R.id.registerFragment)
         is Event.PasswordToggle -> changeToggle(event.checked)
+        is Event.OnClickLogin -> checkLogin()
+    }
+    private fun collectLoginState() {
+        with(viewModel) {
+            lifecycleScope.launchWhenStarted {
+                loginState.collect { state ->
+                    if (state.error.isNotBlank()) {
+                        shortToast(state.error)
+                    } else if (state.isUpdate) {
+                        findNavController().navigate(R.id.main_home)
+                    }
+                }
+            }
+        }
+    }
+
+
+    private fun checkLogin() {
+        if(binding.emailEt.text.isNullOrBlank()) {
+            binding.emailEt.requestFocus()
+            Toast.makeText(requireContext(), "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+        } else if(binding.pwEt.text.isNullOrBlank()) {
+            binding.pwEt.requestFocus()
+            Toast.makeText(requireContext(), "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+        } else {
+            viewModel.login(binding.emailEt.text.toString(), binding.pwEt.text.toString())
+        }
     }
 
     private fun changeToggle(checked : Boolean) {

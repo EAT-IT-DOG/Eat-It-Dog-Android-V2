@@ -15,7 +15,6 @@
         android:background="@color/background_gray">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="36dp"
@@ -112,6 +111,7 @@
                 app:layout_constraintTop_toTopOf="@id/pw_et" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:onClick="@{() ->vm.onClickLogin()}"
                 android:id="@+id/login_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,7 +145,7 @@
                 android:id="@+id/join_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="@{() ->vm.onClickRegister()}"
+                android:onClick="@{() ->vm.onClickJoin()}"
                 android:text="회원가입"
                 android:textColor="@color/pink"
                 android:textSize="12sp"
@@ -155,19 +155,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textSize="30sp"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:text="죄송합니다.\n개발 예정인 화면입니다." />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

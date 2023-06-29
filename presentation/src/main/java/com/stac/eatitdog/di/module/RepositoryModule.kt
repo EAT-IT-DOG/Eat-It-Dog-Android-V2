@@ -1,6 +1,8 @@
 package com.stac.eatitdog.di.module
 
+import com.stac.data.repository.AuthRepositoryImpl
 import com.stac.data.repository.SearchRepositoryImpl
+import com.stac.domain.repository.AuthRepository
 import com.stac.domain.repository.SearchRepository
 import dagger.Module
 import dagger.Provides
@@ -14,4 +16,8 @@ class RepositoryModule {
     @Singleton
     @Provides
     fun provideSearchRepository(searchRepositoryImpl: SearchRepositoryImpl): SearchRepository = searchRepositoryImpl
+
+    @Singleton
+    @Provides
+    fun provideAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository = authRepositoryImpl
 }

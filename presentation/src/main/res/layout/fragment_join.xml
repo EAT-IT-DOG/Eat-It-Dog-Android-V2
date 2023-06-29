@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.stac.eatitdog.features.auth.register.viewmodel.RegisterViewModel" />
+            type="com.stac.eatitdog.features.auth.join.viewmodel.JoinViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -204,6 +204,7 @@
                 android:id="@+id/join_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() ->vm.onClickJoin()}"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="34dp"
                 android:background="@drawable/round_pink"

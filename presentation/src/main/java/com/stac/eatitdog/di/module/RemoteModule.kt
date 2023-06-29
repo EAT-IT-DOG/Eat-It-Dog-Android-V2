@@ -1,6 +1,8 @@
 package com.stac.eatitdog.di.module
 
+import com.stac.data.network.api.AuthApi
 import com.stac.data.network.api.SearchApi
+import com.stac.data.network.remote.AuthRemote
 import com.stac.data.network.remote.SearchRemote
 import com.stac.eatitdog.di.OtherRemoteRetrofit
 import dagger.Module
@@ -17,5 +19,10 @@ class RemoteModule {
     @Provides
     fun provideSearchRemote(@OtherRemoteRetrofit retrofit: Retrofit): SearchRemote =
         SearchRemote(retrofit.create(SearchApi::class.java))
+
+    @Singleton
+    @Provides
+    fun provideAuthRemote(@OtherRemoteRetrofit retrofit: Retrofit): AuthRemote =
+        AuthRemote(retrofit.create(AuthApi::class.java))
 
 }
